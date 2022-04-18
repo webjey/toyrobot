@@ -1,6 +1,5 @@
 import sys
 import os
-from pathlib import Path
 
 from toyrobot.grid import Grid
 from toyrobot.controller import Controller

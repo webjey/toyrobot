@@ -1,10 +1,5 @@
 import sys
 import unittest
-from pathlib import Path
-
-# TODO: Can this path be removed?
-# project_path = Path(__file__).resolve().parents[1]
-# sys.path.append( str(project_path) )
 
 from toyrobot.robot import Robot
 from toyrobot.orientation import Orientation

@@ -31,8 +31,6 @@ class Robot():
 
         self._y = val
 
-    # TODO: 
-    # explicitly set Robot.direction will still accept any value
     def set_direction(self, direction):
         err_msg = f'Invalid direction. Valid values (case insensitive): {list(Orientation.__members__)}'
         if direction not in Orientation.__members__:
