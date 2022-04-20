@@ -46,7 +46,7 @@ class Grid(object):
         Checks if a robot is already placed in the grid (or Table top)
 
         Returns:
-        bool
+        bool: True if a robot already placed in the grid, False otherwise
         """
         return True if self.robot else False
 
