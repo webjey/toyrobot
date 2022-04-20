@@ -13,7 +13,7 @@ class Controller(object):
         self.grid = grid
         self.commands = ('PLACE', 'MOVE', 'RIGHT', 'LEFT', 'REPORT')
 
-    def process_command(self, user_input):
+    def process_command(self, cmd):
         """
         Process the command from user input to control robot
 
@@ -21,15 +21,15 @@ class Controller(object):
         cmd (string): Valid commands are defined in self.commands above ^^^
         """
 
-        cmd, *args = user_input.strip().upper().split(' ', 1)
+        base_cmd, *args = cmd.strip().upper().split(' ', 1)
         if args:
             args = args[0]
 
-        if not cmd in self.commands:
+        if not base_cmd in self.commands:
             print('\nERROR: Invalid command\n')
 
 
-        if cmd == 'PLACE':
+        if base_cmd == 'PLACE':
             error_invalid_args = (f'\nERROR:'
                                   f'\nShould be in the format "PLACE X,Y,Direction"'
                                   f'\nDirection should either: {list(Orientation.__members__)}'
@@ -53,7 +53,7 @@ class Controller(object):
             if direction not in Orientation.__members__:
                 print(error_invalid_args)
                 return
-                
+            
             if self.grid.is_valid(int(x), int(y)):
                 robot = Robot(x, y, direction)
                 self.grid.add_robot(robot)
@@ -64,18 +64,18 @@ class Controller(object):
             if not robot:
                 return
 
-            if cmd == 'MOVE': 
+            if base_cmd == 'MOVE': 
                 x, y = robot.get_next_position()
                 if self.grid.is_valid(x, y):
                     robot.move()
 
-            elif cmd == 'LEFT': 
+            elif base_cmd == 'LEFT': 
                 robot.left()
 
-            elif cmd == 'RIGHT': 
+            elif base_cmd == 'RIGHT': 
                 robot.right()
 
-            elif cmd == 'REPORT': 
+            elif base_cmd == 'REPORT': 
                 robot.report()
 
             else:

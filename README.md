@@ -2,18 +2,26 @@
 Sample application for simulating a robot on a 5x5 unit table.
 
 ## Requirements:
-- Python version 3.1 or above 
+- Python version 3.2 or above 
 
-## How to run
+## How to setup
 ```bash
 git clone https://github.com/webjey/toyrobot.git
 cd toyrobot
-python -m toyrobot
-
-# You should see:
-# Valid commands are:  PLACE, MOVE, RIGHT, LEFT, REPORT
-
 ```
+
+## How to run application
+- In the command prompt (or terminal), type:
+  ```
+  # In default, the maximum rows and columns is 5
+  python -m toyrobot --file tests/data/2.txt
+  ```
+
+- You may also specify the maximum rows and columns:
+  ```
+  python -m toyrobot --file tests/data/2.txt --rows=10 --columns=10 
+  ```
+
 
 ## Available Commands
 **PLACE** - required argument is a string "X,Y,F". eg PLACE 0,0,NORTH
@@ -25,20 +33,20 @@ python -m toyrobot
 **REPORT** - will announce the X,Y and F of the robot.
 
 
-## How to use
-- First, you need to position the robot. In the command prompt, type:
+## Sample command
+- First, you need to position the robot.
   ```bash
   PLACE 0,0,NORTH
   ```
-- Move the robot 1 step (facing north), type:
+- Move the robot 1 step (facing north)
   ```bash
   MOVE
   ```
-- Check the robot position, type:
+- Check the robot position
   ```bash
   REPORT
   
-  # should show similar to this
+  # Output
   # 0,1,NORTH
   ```
 
