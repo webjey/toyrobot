@@ -4,12 +4,23 @@ from toyrobot.robot import Robot
 
 
 class Controller(object):
+    """
+    This process the user input or command and
+    controls the toy robot in the context of a grid (or table top)
+    """
     
     def __init__(self, grid):
         self.grid = grid
         self.commands = ('PLACE', 'MOVE', 'RIGHT', 'LEFT', 'REPORT')
 
     def process_command(self, user_input):
+        """
+        Process the command from user input to control robot
+
+        Parameters:
+        cmd (string): Valid commands are defined in self.commands above ^^^
+        """
+
         cmd, *args = user_input.strip().upper().split(' ', 1)
         if args:
             args = args[0]

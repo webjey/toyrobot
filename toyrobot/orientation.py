@@ -1,6 +1,19 @@
 from enum import Enum
 
 class Orientation(Enum):
+    """
+    This class handles the valid directions
+    The enum tuple values represents the x,y magnitude of change based on direction.
+    For the case of robot, 
+
+    NORTH = (0, 1)
+             ^  ^---- Y increases by 1 unit
+             |------- X increases by 0 unit 
+
+    Usage:
+    (x_offset, y_offset) = Orientation['NORTH'].value
+
+    """
 
     NORTH = ( 0, 1)
     EAST  = ( 1, 0)
@@ -8,16 +21,27 @@ class Orientation(Enum):
     WEST  = (-1, 0)
 
     def right(self):
-        all_element = list(self.__class__)
-        index = all_element.index(self) + 1
-        if index >= len(all_element):
+        """
+        Increase enum index (the pointer) by 1
+
+        eg.
+        direction = Orientation['NORTH']
+        direction.right() # Returns Orientation.EAST
+        """
+        items = list(self.__class__)
+        index = items.index(self) + 1
+        if index >= len(items):
             index = 0
-        return all_element[index]
+        return items[index]
 
     def left(self):
-        all_element = list(self.__class__)
-        index = all_element.index(self) - 1
+        """
+        Decrease enum index by 1
+        """
+
+        items = list(self.__class__)
+        index = items.index(self) - 1
         if index < 0:
-            index = len(all_element) - 1
-        return all_element[index]
+            index = len(items) - 1
+        return items[index]
 
