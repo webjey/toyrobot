@@ -1,5 +1,5 @@
 # ToyRobot
-Sample application for simulating a robot on a 5x5 unit table.
+Sample application for simulating a robot within a table top.
 
 ## Requirements:
 - Python version 3.2 or above 

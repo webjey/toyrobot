@@ -5,16 +5,13 @@ class Grid(object):
     Limitation: 
     - Can add a single robot only (as per requirement)
       but can be easily be refactored to supports multiple robots.
-    """
 
+    Attributes:
+    cols (int): maximum number of columns
+    rows (int): maximum number of rows
+    """
     
     def __init__(self, cols, rows):
-        """
-        Parameters:
-        cols (int): maximum number of columns
-        rows (int): maximum number of rows
-        """
-
         self.cols = cols
         self.rows = rows
         self.robot = None

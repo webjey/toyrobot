@@ -28,7 +28,6 @@ class Controller(object):
         if not base_cmd in self.commands:
             print('\nERROR: Invalid command\n')
 
-
         if base_cmd == 'PLACE':
             error_invalid_args = (f'\nERROR:'
                                   f'\nShould be in the format "PLACE X,Y,Direction"'
@@ -49,12 +48,14 @@ class Controller(object):
             if not (x.isnumeric() and y.isnumeric()):
                 print(error_invalid_args)
                 return
+
+            x, y = int(x), int(y)
                 
             if direction not in Orientation.__members__:
                 print(error_invalid_args)
                 return
             
-            if self.grid.is_valid(int(x), int(y)):
+            if self.grid.is_valid(x, y):
                 robot = Robot(x, y, direction)
                 self.grid.add_robot(robot)
 
