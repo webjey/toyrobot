@@ -34,7 +34,7 @@ class TestOrientation(unittest.TestCase):
                 self.assertEqual(self.orientation.left(), expected)
 
     def test_invalid_orientation(self):
-        with self.assertRaises(KeyError) as raises:
+        with self.assertRaises(KeyError):
             Orientation['NON_EXISTENT_ITEM']
         
 
